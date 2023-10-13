@@ -6,7 +6,7 @@
   <p align="center">
     Your news, served short, sweet and CRUNCHY
     <br />
-    <a href="https://github.com/othneildrew/Best-README-Template">View Demo</a>
+    <a href="#">View Demo</a>
   </p>
 </div>
 
