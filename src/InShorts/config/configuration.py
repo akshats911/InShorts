@@ -1,6 +1,6 @@
 from InShorts.constants import *
 from InShorts.utils.common import read_yaml, create_directiories
-from InShorts.entity import (DataIngestionConfig, DataValidationConfig)
+from InShorts.entity import (DataIngestionConfig, DataValidationConfig, DataTransformationConfig)
 
 class ConfigurationManager:
     def __init__(self,
@@ -34,3 +34,16 @@ class ConfigurationManager:
         )
         return data_validation_config
 
+    def get_data_transformation_config(self) -> DataTransformationConfig:
+        # print(self.config)
+        config = self.config[0].data_transformation
+
+        create_directiories([config.root_dir])
+
+        data_transformation_config = DataTransformationConfig(
+            root_dir=config.root_dir,
+            data_path=config.data_path,
+            tokenizer_name = config.tokenizer_name
+        )
+
+        return data_transformation_config
