@@ -2,6 +2,7 @@ from InShorts.logging import logger
 from InShorts.pipeline.stage1_data_ingestion import DataIngestionTrainingPipeline
 from InShorts.pipeline.stage2_data_validation import DataValidationTrainingPipeline
 from InShorts.pipeline.stage3_data_transformation import DataTransformationTrainingPipeline
+from InShorts.pipeline.stage4_model_trainer import ModelTrainerTrainingPipeline
 
 # STAGE_NAME = "DATA INGESTION"
 
@@ -25,11 +26,23 @@ from InShorts.pipeline.stage3_data_transformation import DataTransformationTrain
 #     logger.exception(e)
 #     raise e
 
-STAGE_NAME = "DATA TRANSFORMATION"
+# STAGE_NAME = "DATA TRANSFORMATION"
+
+# try:
+#     logger.info("Starting {} Stage".format(STAGE_NAME))
+#     data_validation = DataTransformationTrainingPipeline()
+#     data_validation.main()
+#     logger.info("Completed {} Stage".format(STAGE_NAME))
+# except Exception as e:
+#     logger.exception(e)
+#     raise e
+
+
+STAGE_NAME = "MODEL TRAINER"
 
 try:
     logger.info("Starting {} Stage".format(STAGE_NAME))
-    data_validation = DataTransformationTrainingPipeline()
+    data_validation = ModelTrainerTrainingPipeline()
     data_validation.main()
     logger.info("Completed {} Stage".format(STAGE_NAME))
 except Exception as e:

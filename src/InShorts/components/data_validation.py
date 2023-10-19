@@ -11,7 +11,7 @@ class DataValidation:
     def validate_all_files_exist(self)-> bool:
         try:
             validation_status= None
-            all_files = os.listdir(os.path.join("artifacts","data_ingestion","SAMSUM"))
+            all_files = os.listdir(os.path.join("artifacts","data_ingestion","CNN_DATASET"))
             for file in all_files:
                 if file not in self.config.ALL_REQUIRED_FILES:
                     validation_status = False

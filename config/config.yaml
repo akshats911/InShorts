@@ -2,8 +2,8 @@ artifacts_root : artifacts
 
 data_ingestion:
   root_dir: artifacts/data_ingestion
-  source_URL: https://github.com/akshats911/dataFolder/raw/main/SAMSUM.zip
-  local_data_file: artifacts/data_ingestion/data.zip
+  source_URL: https://ln5.sync.com/dl/3b62da2d0/2rjdt5kd-egvhjnzf-yx77dern-gyuda232
+  local_data_file: artifacts/data_ingestion/CNN_DATASET.zip  
   unzip_dir: artifacts/data_ingestion
 
 
@@ -14,5 +14,10 @@ data_validation:
 
 data_transformation:
   root_dir: artifacts/data_transformation
-  data_path: artifacts/data_ingestion/SAMSUM
+  data_path: artifacts/data_ingestion/CNN_DATASET
   tokenizer_name: google/pegasus-cnn_dailymail
+
+model_trainer:
+  root_dir: artifacts/model_trainer
+  data_path: artifacts/data_transformation/CNN_dataset
+  model_ckpt: google/pegasus-cnn_dailymail

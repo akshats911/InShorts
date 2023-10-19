@@ -10,10 +10,10 @@ class DataTransformation:
         self.tokenizer = AutoTokenizer.from_pretrained(config.tokenizer_name)
     
     def convert_examples_to_features(self,example_batch):
-        input_encodings = self.tokenizer(example_batch['dialogue'] , max_length = 1024, truncation = True )
+        input_encodings = self.tokenizer(example_batch['Content'] , max_length = 1024, truncation = True )
         
         with self.tokenizer.as_target_tokenizer():
-            target_encodings = self.tokenizer(example_batch['summary'], max_length = 128, truncation = True)
+            target_encodings = self.tokenizer(example_batch['Highlights'], max_length = 128, truncation = True)
             
         print(input_encodings)
         return {
@@ -27,4 +27,4 @@ class DataTransformation:
         dataset_samsum = load_dataset(self.config.data_path)
         # print(dataset_samsum)
         dataset_samsum_pt = dataset_samsum.map(self.convert_examples_to_features, batched = True)
-        dataset_samsum_pt.save_to_disk(os.path.join(self.config.root_dir,"samsum_dataset"))
+        dataset_samsum_pt.save_to_disk(os.path.join(self.config.root_dir,"CNN_dataset"))
